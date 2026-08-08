@@ -1,21 +1,32 @@
+<div align='center'>
+
 # SEAL MULE
+
+---
 
 ### *An Autonomous Kitting & Data-Mule Robot with PLC-Coordinated Part Verification*
 
-A simulation-stage automation project combining a PLC-controlled safety/sequencing layer with an autonomous mobile robot (AMR) that verifies parts before transporting them, and doubles as a wireless "data mule" for battery-free, vibration-powered sensor nodes placed along its route.
+A simulation-stage automation project combining a PLC-controlled safety/sequencing layer with an autonomous mobile robot (AMR) that verifies parts before transporting them, and doubles as a wireless **"data mule"** for battery-free, vibration-powered sensor nodes placed along its route.
 
 Built as a bridge between **ladder-logic PLC control** and **practical embedded/robotics engineering**.
 
-![Status](https://img.shields.io/badge/Status-Code%20Complete%20%7C%20Simulation%20Pending-orange)
-![Architecture](https://img.shields.io/badge/Architecture-Dual%20Controller-blue)
-![PLC](https://img.shields.io/badge/PLC-Ladder%20Logic%20(LDmicro)-purple)
-![MCU](https://img.shields.io/badge/MCU-Arduino%20Mega%202560-red)
-![Simulation](https://img.shields.io/badge/Simulation-Proteus%208%20Professional-teal)
-![Wireless](https://img.shields.io/badge/Wireless-NRF24L01-lightgrey)
-![Verification](https://img.shields.io/badge/Verification-RFID%20(MFRC522)-green)
-![Type](https://img.shields.io/badge/Type-Robotics%20%2B%20Automation-9cf)
+<br>
+
+<img src='https://img.shields.io/badge/Status-Code%20Complete%20%7C%20Simulation%20Pending-c96a28?style=for-the-badge' />
+<img src='https://img.shields.io/badge/Architecture-Dual%20Controller-0b79c8?style=for-the-badge' />
+<img src='https://img.shields.io/badge/PLC-Ladder%20Logic%20(LDmicro)-8a0ea8?style=for-the-badge' />
+<img src='https://img.shields.io/badge/MCU-Arduino%20Mega%202560-d9534f?style=for-the-badge' />
+
+<img src='https://img.shields.io/badge/Simulation-Proteus%208%20Professional-008b8b?style=for-the-badge' />
+<img src='https://img.shields.io/badge/Wireless-NRF24L01-808080?style=for-the-badge' />
+<img src='https://img.shields.io/badge/Verification-RFID%20(MFRC522)-7aa300?style=for-the-badge' />
+<img src='https://img.shields.io/badge/Type-Robotics%20%2B%20Automation-7fa6d9?style=for-the-badge' />
+
+</div>
 
 ---
+
+<div align='center'>
 
 ## Table of Contents
 
