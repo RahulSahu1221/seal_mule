@@ -26,8 +26,6 @@ Built as a bridge between **ladder-logic PLC control** and **practical embedded/
 
 ---
 
-<div align='center'>
-
 ## Table of Contents
 
 - [Overview](#overview)
