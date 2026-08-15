@@ -1,36 +1,34 @@
 /*
-  SEAL MULE — Sensor Node
-  Board: ATtiny85 (or substitute chip)
-  Sleeps most of the time, wakes on a wireless beacon, sends one reading, sleeps again.
+  ============================================================
+  SEAL MULE — Sensor Node — SIMPLIFIED VERSION
+  Board: any small AVR chip (ATtiny85 / ATmega16 / similar)
+
+  This version does NOT use the NRF24L01 library. The node's reading
+  is represented by a potentiometer wired directly to the AMR's
+  analog input (SENSOR_DATA_IN_PIN in the Controller B code) —
+  this direct wire stands in for the wireless link, as documented
+  in the project README.
+
+  This code's only real job is to detect the beacon signal from the
+  AMR and light an LED briefly, visually showing the node "waking up" —
+  matching the sleep/wake story from the project design, even though
+  the actual reading is delivered by the direct wire, not by this code.
+  ============================================================
 */
 
-#include <SPI.h>
-#include <RF24.h>
-
-RF24 radio(7, 8); // adjust CE/CSN pins to match your wiring
+const int BEACON_IN_PIN = 2;  // receives the beacon signal from the AMR (direct wire)
+const int WAKE_LED_PIN  = 8;  // lights up while the node is "awake"
 
 void setup() {
-  radio.begin();
-  radio.openReadingPipe(1, 0xF0F0F0F0E1LL);  // must match the AMR's writing pipe address
-  radio.openWritingPipe(0xF0F0F0F0D2LL);      // must match the AMR's reading pipe address
-  radio.startListening();
+  pinMode(BEACON_IN_PIN, INPUT);
+  pinMode(WAKE_LED_PIN, OUTPUT);
+  digitalWrite(WAKE_LED_PIN, LOW);
 }
 
 void loop() {
-  if (radio.available()) {
-    char incoming[5];
-    radio.read(&incoming, sizeof(incoming));
-
-    // A real beacon message triggers a reply
-    if (String(incoming) == "WAKE") {
-      radio.stopListening();
-
-      // Simulated vibration reading — replace with a real analogRead()
-      // from a sensor pin if you add one
-      float simulatedReading = random(100, 500) / 10.0;
-
-      radio.write(&simulatedReading, sizeof(simulatedReading));
-      radio.startListening();
-    }
+  if (digitalRead(BEACON_IN_PIN) == HIGH) {
+    digitalWrite(WAKE_LED_PIN, HIGH);  // node "wakes up" while beacon is active
+  } else {
+    digitalWrite(WAKE_LED_PIN, LOW);   // node returns to "sleep"
   }
 }
