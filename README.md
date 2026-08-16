@@ -118,6 +118,8 @@ Two components originally planned required Proteus 8.9+ library models, while th
 
 **Handshake to Controller A:** Permit-In → Mega pin 30, SKU-Match-Out → pin 32, Arrived-Out → pin 33, Done/Fault-Out → pin 34.
 
+<img width="2284" height="1482" alt="Controller_B_Circuit_ _Wiring" src="https://github.com/user-attachments/assets/c9b61b54-4c60-4949-befa-30fb0c840c41" />
+
 ---
 
 ## Controller A: Full Wiring
@@ -153,6 +155,8 @@ Built in LDmicro, targeting the ATmega16 at 16MHz. Six rungs:
 
 `Ready` and `Fault` are configured as **Internal Relays** (not pin-mapped I/O) — this LDmicro version requires every I/O-type signal to have a real pin assigned to compile, so purely internal flags must explicitly use the Internal Relay type rather than an unused pin.
 
+<img width="2868" height="1297" alt="LDMicro_Ladder_Logic_Program" src="https://github.com/user-attachments/assets/eeb1089f-907a-4985-94f0-dfd80c533e10" />
+
 ---
 
 ## Chip Configuration Notes
@@ -170,6 +174,12 @@ Both operating paths have been verified in Proteus:
 
 - **Fault path:** DIP switch set to a non-matching code → LCD displays "SKU MISMATCH!" → buzzer and LED activate → robot halts → clears only after the Reset button is pressed.
 - **Success path:** DIP switch set to match `expectedSKUCode` (`0b1010`) in the Controller B firmware → LCD progresses through "Moving to rack" → "SKU OK - Moving" → "At sensor node" (sensor reading displayed) → "Delivered!" → motors register active output during the drive segments.
+
+<img width="912" height="463" alt="result_1" src="https://github.com/user-attachments/assets/59e8dd38-e41c-45c7-a2e6-b897266060e0" />
+<img width="909" height="464" alt="result_2" src="https://github.com/user-attachments/assets/bf20c3be-5fb2-4dcf-b2fd-89a728586921" />
+<img width="623" height="317" alt="result_3" src="https://github.com/user-attachments/assets/19f5d994-ceaf-4bf6-ae5d-5d8ae6fb8cfe" />
+<img width="624" height="325" alt="result_4" src="https://github.com/user-attachments/assets/e4b12edd-79c1-4810-9b19-a752b169680d" />
+<img width="612" height="316" alt="result_5" src="https://github.com/user-attachments/assets/eea55be9-1013-491d-a977-caa30f90915b" />
 
 ---
 
